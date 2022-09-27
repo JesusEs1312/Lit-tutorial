@@ -1,0 +1,19 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "description": "Into to Lit tutorial",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+  },
+  "author": "Jesus",
+  "license": "ISC",
+  "devDependencies": {
+    "es-dev-server": "^2.1.0",
+    "eslint": "^8.23.1"
+  },
+  "dependencies": {
+    "lit": "^2.3.1"
+  }
+}
