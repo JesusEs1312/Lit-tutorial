@@ -1,4 +1,5 @@
 import { LitElement, html, css } from "lit";
+import { styles } from '../nav-menu/nav-menu-styles.js';
 
 export class NavMenu extends LitElement {
 
@@ -7,38 +8,7 @@ export class NavMenu extends LitElement {
         
     }
 
-    static styles = css `
-        a {
-            text-decoration: none;
-            padding: 15px 15px;
-            color: #ffffff;
-            font-size: 20px;
-        }
-
-        a:hover {
-            border-bottom: solid #fff 2px;
-        }
-
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(3, auto);
-        }
-
-        ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: auto auto;
-            background: #14549C;
-            align-items: center;
-            margin: 0px;
-        }
-
-        img {
-            width: 130px;
-            margin-right: 550px;
-            padding: 15px 0px;
-        }
-    `;
+    static styles = [styles];
 
     constructor() {
         super();
@@ -55,7 +25,7 @@ export class NavMenu extends LitElement {
                 <div class="menu">
                     ${this.listItems.map(item => html `
                         <li>
-                            <a href="#">${item.text}</a>
+                            <a href="#">${item}</a>
                         </li>
                     `)}
                 </div>

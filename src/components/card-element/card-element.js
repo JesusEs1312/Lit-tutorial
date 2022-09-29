@@ -1,45 +1,27 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html } from "lit";
+import { styles } from "./card-element-styles";
 
 export class CardElement extends LitElement {
     static properties = {
-        img: {},
+        pathImg: {},
         title: {},
         description: {}
     }
 
-    static styles = css `
-        .container {
-            width: 100%
-            heigth: 200px;
-            background-color: #f3f4f7;
-            text-align: start;
-        }
-        
-        p {
-            padding: 0px 20px 20px 20px;
-        }
-
-        h3 {
-            padding: 0px 20px;
-        }
-
-        img {
-            width: 100%;
-        }
-    `;
+    static styles = [styles];
 
     constructor() {
         super();
-        this.title       = "";
-        this.img         = "";
-        this.description = "";
+        this.title           = "";
+        this.pathImg         = "";
+        this.description     = "";
     }
 
     render() {
         return html `
             <div class="container">
                 <div>
-                    <img src=${this.img}>
+                    <img src=${this.pathImg}>
                 </div>
                 <div>
                     <h3>${this.title}</h3>

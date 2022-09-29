@@ -9,15 +9,17 @@
     <script type="module" src="./src/footer-element/footer-element.js";></script>
     <script type="module" src="./src/components/header-menu/header-menu.js";></script>
     <script type="module" src="./src/components/life-cycle/life-cycle.js";></script>
-    <script type="module" src="./src/components/body-element/body-element.js";></script>
+    <script type="module" src="./src/body-component/body-component.js";></script>
     <link rel="stylesheet" href="./styles.css"/>
-    <title>Document</title>
+    <title>Lit - Element</title>
 </head>
 <body>
-    <header-menu></header-menu>
+    <header-component></header-component>
     <div class="container">
-        <body-element></body-element>
+        <body-component></body-component>
     </div>
-    <footer-element></footer-element>
+    <footer-element>
+        <img slot="logo" src="../../../assets/logo_bbva_blanco.svg" width="150px">
+    </footer-element>
 </body>
 </html>

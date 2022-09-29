@@ -1,23 +1,22 @@
-import { LitElement, html } from "lit";
+import { LitElement, html} from "lit";
+import '../components/nav-menu/nav-menu.js';
+import '../components/imagen-element/imagen-element.js'
 
-export class HeaderElement extends LitElement {
-    static properties = {
-        title: {},
-        subTitle: {}
-    }
+export class HeaderComponent extends LitElement {
 
     constructor() {
         super();
-        this.title    = 'Learnig Lit-element';
-        this.subTitle = 'Into to Lit tutorial'; 
+        this.itemsMenu = ['Inicio', 'Nosotros', 'Contacto'];
+        this.pathImg = "../../../assets/BBVA.jpg"; 
     }
-
+    
     render() {
         return html `
-            <h1>${this.title}</h1>
-            <h3>${this.subTitle}</h3>
-            <hr>
+            <div>
+                <nav-menu .listItems=${this.itemsMenu}></nav-menu>
+                <imagen-element .pathImg=${this.pathImg}></imagen-element>
+            </div>
         `;
     }
 }
-customElements.define('header-element', HeaderElement);
+customElements.define('header-component', HeaderComponent);

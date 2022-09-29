@@ -20,3 +20,10 @@ body {
     padding: 0px;
     margin: 0px;
 }
+
+img {
+    width: 130px;
+    /* margin-right: 750px; */
+    padding: 15px;
+    margin-bottom: 30px;
+}

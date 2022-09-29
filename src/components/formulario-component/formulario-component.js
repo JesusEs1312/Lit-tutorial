@@ -1,48 +1,48 @@
-import { LitElement, html, css } from "lit";
+import { LitElement, html } from "lit";
+import { styles } from "./formulario-component-styles";
 
 export class FormularioComponent extends LitElement {
-    static properties = {
-
-    }
-
-    static styles = css `
-        .formulario {
-            display: grid;
-            grid-template-columns: 49% 49%;
-            grid-template-rows: repeat(3, auto);
-            gap: 2%;
-            margin: 50px 0px;
-        }
-
-        button {
-            width: 50%;
-            padding: 15px;
-            border: none;
-            font-size: 15px;
-            cursor: pointer;
-            background: #14549C;
-            color: #fff;
-        }
-
-        input {
-            padding: 15px;
-            margin-bottom: 15px;
-            font-size: 15px;
-        }
-    `;
+    
+    static styles = [styles];
 
     constructor() {
         super();
+        this.listItem = [];
+    }
+
+    addItem() {
+        this.listItem = [...this.listItem, 
+            {
+                title: this.inputTitle.value,
+                description: this.inputDescription.value,
+                pathImg: this.inputPathImg.value
+            }];
+        this.inputTitle.value       = '';
+        this.inputDescription.value = '';
+        this.inputPathImg.value     = '';
+        this.requestUpdate();
+    }
+
+    get inputTitle() {
+        return this.renderRoot?.querySelector('#itemTitle') ?? null;
+    }
+
+    get inputDescription() {
+        return this.renderRoot?.querySelector('#itemDescription') ?? null;
+    }
+
+    get inputPathImg() {
+        return this.renderRoot?.querySelector('#itemPathImg') ?? null;
     }
 
     render() {
         return html `
+            <imagenes-element .listItems=${this.listItem}></imagenes-element>
             <div class="formulario">
-                <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Email">
-                <input type="text" placeholder="Asunto">
-                <input type="text" placeholder="Mensaje">
-                <button>Enviar</button>
+                <input type="text" placeholder="Titulo" id="itemTitle">
+                <input type="text" placeholder="Descripcion" id="itemDescription">
+                <input type="text" placeholder="Ruta imagen" id="itemPathImg">
+                <button @click=${this.addItem}>Guardar</button>
             </div>
         `;
     }

@@ -1,24 +1,9 @@
 import {LitElement, html, css} from 'lit';
+import { styles } from './productlis-component-styles.js';
 
-export class MyElement extends LitElement {
+export class ProductListComponent extends LitElement {
 
-    static styles = css `
-        li {
-            cursor: pointer;
-            padding: 50px;
-            font-size: 18px;
-            color: #14549C;
-        }
-
-        li:hover {
-            color: #000;
-        }
-
-        ul {
-            display: flex;
-            list-style: none;
-        }
-    `;
+    static styles = [styles];
 
     static properties = {
         listItems: {state: true}
@@ -41,4 +26,4 @@ export class MyElement extends LitElement {
         `;
     }
 }
-customElements.define('my-element', MyElement);
+customElements.define('productlist-component', ProductListComponent);
